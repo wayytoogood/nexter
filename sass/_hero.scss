@@ -1,0 +1,164 @@
+.hero {
+  background: linear-gradient(
+      rgba($color-secondary, 0.925),
+      rgba($color-secondary, 0.925)
+    ),
+    url(../img/hero.jpeg) center/cover no-repeat;
+  height: calc(100vh - 6rem);
+  margin-top: 6rem;
+
+  @include respond(48rem) {
+    flex: 0 0 73%;
+  }
+
+  @include respond(64rem) {
+    margin-top: 0;
+    height: 80vh;
+  }
+
+  &__center {
+    @include sectionCenter(77.5%);
+    display: grid;
+    height: 100%;
+    align-content: space-between;
+    padding: 4rem 0;
+    // justify-items: center;
+
+    @include respond(36em) {
+      width: 85%;
+    }
+
+    @include respond(64em) {
+      padding: 3rem 0 6rem;
+      // justify-items: start;
+    }
+
+    @include respond(75rem) {
+      width: 75%;
+    }
+
+    @include respond(96rem) {
+      padding: 3.5rem 0 6.5rem;
+      width: 70%;
+    }
+  }
+
+  h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+  }
+
+  &__logo {
+    width: 11rem;
+    height: 2.4rem;
+    background-size: cover;
+    fill: $color-primary;
+    display: block;
+
+    @include respond(48em) {
+      width: 12rem;
+      height: 2.65rem;
+    }
+
+    @include respond(64em) {
+      justify-self: center;
+    }
+
+    @include respond(96rem) {
+      width: 13.65rem;
+      height: 3rem;
+    }
+  }
+
+  &__footer {
+    display: grid;
+    row-gap: 1.5rem;
+    overflow: hidden;
+  }
+
+  &__footer-seenon {
+    color: $color-grey-light-2;
+    justify-self: center;
+    padding: 0 1.25rem;
+    position: relative;
+    font-size: 1.25rem;
+
+    @include respond(48em) {
+      font-size: 1.5rem;
+    }
+
+    @include respond(75rem) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__footer-seenon::before,
+  &__footer-seenon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    background-color: $color-grey-light-2;
+    width: calc((77.5vw - 7rem) / 2);
+    height: 1px;
+
+    @include respond(36em) {
+      width: calc((85vw - 7rem) / 2);
+    }
+  }
+
+  &__footer-seenon::before {
+    right: 100%;
+  }
+
+  &__footer-seenon::after {
+    left: 100%;
+  }
+
+  &__footer-brands {
+    display: flex;
+    width: 77.5vw;
+    max-width: 52rem;
+    height: 2rem;
+
+    @include respond(36em) {
+      width: 85vw;
+    }
+
+    @include respond(48em) {
+      width: 62vw;
+    }
+
+    @include respond(64em) {
+      width: calc((100vw - 6.5rem) * 67 / 100 * 85 / 100);
+      max-width: 70rem;
+    }
+  }
+
+  &__footer-brand {
+    flex: 0 1 25%;
+    background-color: $color-grey-light-2;
+
+    &:nth-child(1) {
+      mask: url(../img/logo-bbc.png) center/contain no-repeat;
+    }
+
+    &:nth-child(2) {
+      mask: url(../img/logo-forbes.png) center/contain no-repeat;
+    }
+
+    &:nth-child(3) {
+      mask: url(../img/logo-techcrunch.png) center/contain no-repeat;
+    }
+
+    &:nth-child(4) {
+      mask: url(../img/logo-bi.png) center/contain no-repeat;
+    }
+
+    &:not(:last-child) {
+      margin-right: 2.25rem;
+    }
+  }
+}

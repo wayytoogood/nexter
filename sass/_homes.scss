@@ -1,0 +1,60 @@
+.house {
+  position: relative;
+
+  &__figure {
+    position: relative;
+  }
+
+  &__icon-heart {
+    display: block;
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    width: 7.5%;
+    height: 7.5%;
+    fill: $color-primary;
+    z-index: 10;
+  }
+
+  &__content {
+    @include gridLayout(2, 1fr);
+    gap: 2.5rem 12.5%;
+    padding: 5.75rem 2rem 3.5rem;
+    background-color: $color-grey-light-1;
+  }
+
+  &__name {
+    position: absolute;
+    bottom: 0;
+    left: 12.5%;
+    width: 75%;
+    padding: 1.25rem 0;
+    text-align: center;
+    background-color: $color-secondary;
+    color: $color-grey-light-1;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: 300;
+    transform: translateY(50%);
+  }
+
+  &__content-item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 1rem;
+    fill: $color-primary;
+  }
+
+  &__text {
+    font-size: 1.25rem;
+  }
+
+  &__btn {
+    width: 100%;
+  }
+}

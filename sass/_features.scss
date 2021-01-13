@@ -1,0 +1,16 @@
+.feature {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 2rem;
+
+  &__icon {
+    width: 4rem;
+    height: 4rem;
+    fill: $color-primary;
+    margin-top: -1.15rem;
+  }
+
+  &__text {
+    grid-column: 2 / -1;
+  }
+}

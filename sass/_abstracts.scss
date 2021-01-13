@@ -1,0 +1,38 @@
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin adjustFlex($jc, $ai) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin transition($time: 0.2s, $func: linear, $pro: all) {
+  transition: $pro $time $func;
+}
+
+@mixin gridCenter {
+  display: grid;
+  place-items: center;
+}
+
+@mixin gridLayout($cc, $cw, $cg: 0) {
+  display: grid;
+  grid-template-columns: repeat($cc, $cw);
+  gap: $cg;
+}
+
+@mixin sectionCenter($w, $mw: 1170px) {
+  width: $w;
+  max-width: $mw;
+  margin: 0 auto;
+}
+
+@mixin respond($bp) {
+  @media only screen and (min-width: $bp) {
+    @content;
+  }
+}

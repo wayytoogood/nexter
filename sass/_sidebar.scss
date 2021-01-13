@@ -1,0 +1,189 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $color-primary;
+  z-index: 100;
+  overflow: hidden;
+  @include transition(0.5s, ease);
+
+  @include respond(64em) {
+    width: 6.5rem;
+    height: 100%;
+  }
+
+  &-grow {
+    width: 22rem;
+  }
+
+  &__top {
+    position: relative;
+    height: 6rem;
+    display: grid;
+    align-items: center;
+    z-index: 10;
+
+    @include respond(64em) {
+      width: 6.5rem;
+      height: 100%;
+      justify-items: center;
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__toggle-container {
+    position: absolute;
+    right: 1.5rem;
+    width: 6rem;
+    height: 4rem;
+    @include gridCenter;
+    z-index: 20;
+    cursor: pointer;
+
+    @include respond(64em) {
+      right: initial;
+      top: 1.25rem;
+    }
+  }
+
+  &__toggle {
+    position: relative;
+  }
+
+  &__toggle,
+  &__toggle::before,
+  &__toggle::after {
+    width: 3.5rem;
+    height: 2px;
+    background-color: $color-grey-light-1;
+    @include transition(0.75s, cubic-bezier(0.68, 0.01, 0.42, 1.36));
+  }
+
+  &__toggle::before,
+  &__toggle::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    display: block;
+  }
+
+  &__toggle::before {
+    top: -1rem;
+  }
+
+  &__toggle::after {
+    top: 1rem;
+  }
+
+  &__input:checked + .sidebar__toggle-container .sidebar__toggle {
+    background-color: transparent;
+  }
+
+  &__input:checked + .sidebar__toggle-container .sidebar__toggle::before {
+    transform: rotate(135deg);
+    top: 0;
+  }
+
+  &__input:checked + .sidebar__toggle-container .sidebar__toggle::after {
+    transform: rotate(-135deg);
+    top: 0;
+  }
+
+  &__list {
+    height: calc(100vh - 6rem);
+    @include flexCenter;
+    flex-direction: column;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    @include transition(0.5s, ease);
+
+    @include respond(64em) {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(-100%, -50%);
+    }
+  }
+
+  &__list-open {
+    height: calc(100vh - 6rem);
+    visibility: visible;
+    opacity: 1;
+
+    @include respond(64em) {
+      height: auto;
+      transform: translate(0, -50%);
+    }
+  }
+
+  &__item {
+    margin-bottom: 5rem;
+
+    @include respond(64em) {
+      margin-bottom: 3.75rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__link {
+    padding: 1rem 2rem;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 3rem;
+    color: $color-grey-light-1;
+    background-image: linear-gradient(
+      135deg,
+      transparent,
+      transparent 50%,
+      $color-grey-light-1 50%
+    );
+    background-size: 250%;
+    position: relative;
+    @include transition(0.75s, ease);
+
+    &:hover {
+      background-position: 100%;
+      color: $color-primary;
+    }
+
+    @include respond(64em) {
+      font-size: 1.75rem;
+
+      &:hover::before {
+        opacity: 1;
+        width: 100%;
+        background-position: 0;
+      }
+    }
+  }
+
+  &__link::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background-image: linear-gradient(
+      305deg,
+      transparent,
+      transparent 50%,
+      $color-secondary 50%
+    );
+    background-size: 250%;
+    background-position: 100%;
+    @include transition(0.45s, ease);
+    z-index: -1;
+  }
+}

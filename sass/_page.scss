@@ -1,0 +1,91 @@
+// MAIN
+main {
+  @include respond(64em) {
+    // width: calc(100vw - 6.5rem);
+    margin-left: 6.5rem;
+  }
+}
+
+// HEADER
+.header {
+  @include respond(48em) {
+    display: flex;
+  }
+}
+
+// REALTORS
+.realtors {
+  background-color: $color-secondary;
+  padding: 2.5rem 0 3rem;
+
+  @include respond(48em) {
+    flex: 0 0 27%;
+  }
+
+  @include respond(48em) {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+  }
+
+  h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+
+    @include respond(48em) {
+      margin-bottom: 2.55rem;
+    }
+  }
+
+  &__center {
+    display: grid;
+    justify-items: center;
+    row-gap: 1.5rem;
+
+    @include respond(36em) {
+      grid-template-columns: repeat(3, auto);
+      justify-content: center;
+      column-gap: 2rem;
+    }
+
+    @include respond(48em) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// FEATURES
+.features {
+  padding: 10rem 0;
+  @include sectionCenter(75%);
+  display: grid;
+  row-gap: 5.25rem;
+  align-items: start;
+
+  @include respond(36em) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 4rem;
+    width: 90%;
+  }
+
+  @include respond(80em) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// HOMES
+.homes {
+  @include sectionCenter(75%);
+  padding: 10rem 0;
+  display: grid;
+  gap: 5.5rem 5rem;
+  grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+
+  @include respond(39.9375em) {
+    width: 90%;
+  }
+
+  @include respond(96em) {
+    gap: 5.5rem;
+  }
+}

@@ -1,0 +1,32 @@
+.realtor {
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  &__pic {
+    margin-right: 1.25rem;
+    width: 5.6rem;
+    border-radius: 50%;
+  }
+
+  &__sold {
+    color: $color-grey-light-2;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+  }
+
+  @include respond(36rem) {
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+
+  @include respond(48rem) {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+}
